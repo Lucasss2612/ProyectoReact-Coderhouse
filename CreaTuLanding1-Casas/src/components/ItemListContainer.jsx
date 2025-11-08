@@ -1,4 +1,3 @@
-// Recibe la prop "greeting" (requisito)
 function ItemListContainer({ greeting }) {
   return (
     <section className="p-4 bg-light rounded-3">
