@@ -1,36 +1,13 @@
-import CartWidget from './CartWidget.jsx'
+import { Link } from "react-router-dom"
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-      <div className="container">
-        {}
-        <a className="navbar-brand d-flex align-items-center gap-2" href="#">
-          {}
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M7 13h10l-1.5 5h-7z" fill="#fff"></path>
-          </svg>
-          <span>Imprimagic</span>
-        </a>
-
-        {}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* Links + Cart */}
-        <div className="collapse navbar-collapse" id="navContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item"><a className="nav-link active" aria-current="page" href="#">Inicio</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Productos</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Contacto</a></li>
-          </ul>
-
-          {}
-          <CartWidget count={2} />
-        </div>
-      </div>
+    <nav style={{ padding: "10px", background: "#222", color: "#fff" }}>
+      <Link to="/" style={{ marginRight: "15px", color: "#fff" }}>Inicio</Link>
+      <Link to="/categoria" style={{ marginRight: "15px", color: "#fff" }}>Categoría</Link>
+      <Link to="/categoria-1" style={{ marginRight: "15px", color: "#fff" }}>Categoría 1</Link>
+      <Link to="/item" style={{ marginRight: "15px", color: "#fff" }}>Item</Link>
+      <Link to="/detalle" style={{ marginRight: "15px", color: "#fff" }}>Detalle</Link>
     </nav>
   )
 }
