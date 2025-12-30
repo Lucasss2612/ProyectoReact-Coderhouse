@@ -29,7 +29,7 @@ function CheckoutForm() {
     e.preventDefault();
 
     if (!buyer.name || !buyer.phone || !buyer.email) {
-      alert("Completá nombre, teléfono y email.");
+      alert("Completa nombre, teléfono y email.");
       return;
     }
 

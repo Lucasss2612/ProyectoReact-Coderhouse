@@ -1,10 +1,10 @@
 import { createContext, useMemo, useState } from "react";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]); 
-  // cart item shape: { id, title, price, img, category, stock, qty }
 
   const addItem = (product, qty) => {
     if (!product || qty <= 0) return;
@@ -12,7 +12,6 @@ export function CartProvider({ children }) {
     setCart((prev) => {
       const existing = prev.find((p) => p.id === product.id);
 
-      // Si ya existe, sumo qty pero no paso el stock
       if (existing) {
         const newQty = Math.min(existing.qty + qty, product.stock ?? existing.stock ?? Infinity);
         return prev.map((p) => (p.id === product.id ? { ...p, qty: newQty } : p));

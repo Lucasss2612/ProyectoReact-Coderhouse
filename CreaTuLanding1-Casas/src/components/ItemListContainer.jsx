@@ -8,6 +8,7 @@ function ItemListContainer({ greeting }) {
   const { categoryId } = useParams();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     setLoading(true);
@@ -18,11 +19,15 @@ function ItemListContainer({ greeting }) {
     getDocs(q)
       .then((snap) => {
         const docs = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+        console.log("categoryId:", categoryId);
+        console.log("docs:", docs);
         setItems(docs);
       })
       .catch(() => setItems([]))
       .finally(() => setLoading(false));
   }, [categoryId]);
+  console.log("categoryId:", categoryId);
+
 
   return (
     <>
@@ -36,6 +41,7 @@ function ItemListContainer({ greeting }) {
       )}
 
       {!loading && items.length > 0 && <ItemList items={items} />}
+      
     </>
   );
 }
