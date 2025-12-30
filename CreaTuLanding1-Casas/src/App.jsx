@@ -1,27 +1,26 @@
-// src/App.jsx
-import { Routes, Route } from "react-router-dom"
-import NavBar from "./components/NavBar"
-import Home from "./components/Home"
-import Categoria from "./components/Categoria"
-import Categoria1 from "./components/Categoria1"
-import Item from "./components/Item"
-import Detalle from "./components/Detalle"
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar.jsx";
+import ItemListContainer from "./components/ItemListContainer.jsx";
+import ItemDetailContainer from "./components/ItemDetailContainer.jsx";
+import Cart from "./components/Cart.jsx";
+import CheckoutForm from "./components/CheckoutForm.jsx";
 
 function App() {
   return (
     <>
       <NavBar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/categoria" element={<Categoria />} />
-        <Route path="/categoria-1" element={<Categoria1 />} />
-        <Route path="/item" element={<Item />} />
-        <Route path="/detalle" element={<Detalle />} />
-        <Route path="*" element={<h2>Página no encontrada</h2>} />
-      </Routes>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<ItemListContainer greeting="Bienvenido a Imprimagic Store 🛒" />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer greeting="Explorá por categoría" />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckoutForm />} />
+          <Route path="*" element={<h2>404 — Página no encontrada</h2>} />
+        </Routes>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
